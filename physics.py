@@ -66,7 +66,9 @@ def main():
         xys = np.append(xys, temp,axis=0)
     
     times = np.array([[parab.delta_t * i] for i in range(n_step)])
-    print(np.round(np.append(times, xys,axis=1), 6))
+    array = np.append(times, xys,axis=1)
+    for row in array:
+        print('{:.2f}'.format(row[0]), "\b,", '{:.6f}'.format(row[1]), "\b,",'{:.6f}'.format(row[2]))
 
     print("\nShow trajectory")
 
