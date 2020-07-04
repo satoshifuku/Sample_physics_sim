@@ -5,10 +5,10 @@ PVector location;
 float e;
 
 void setup() {
-  size(1280,720);
+  size(2480,1440);
   
-  location = new PVector(100,500);
-  velocity = new PVector(0.5*sqrt(2)*9.8, -0.5*sqrt(2)*9.8);
+  location = new PVector(100,1000);
+  velocity = new PVector(0.7*sqrt(2)*9.8, -0.7*sqrt(2)*9.8);
   g = new PVector(0,0.1);
   e = 0.8;
   background(25, 25, 25);
@@ -21,13 +21,13 @@ void draw() {
   velocity.add(g);
   
   // Bounceing off
-  // if ((location.x > width) || (location.x < 0)) {
-  //   velocity.x = -e * velocity.x;
-  // }
-  // if (location.y > height) {
-  //   velocity.y = -e * velocity.y; 
-  //   location.y = height;
-  // }
+  if ((location.x > width) || (location.x < 0)) {
+    velocity.x = -e * velocity.x;
+  }
+  if (location.y > height) {
+    velocity.y = -e * velocity.y; 
+    location.y = height;
+  }
 
   draw_circle();
 }
