@@ -21,7 +21,7 @@ class Parabolic:
         return [ xy[0] + v_xy[0] * self.delta_t, xy[1] + v_xy[1] * self.delta_t]
 
 
-    def decomposition_vector(self, speed, rad):
+    def polar2Cartesian(self, speed, rad):
         return [speed * np.cos(rad), speed * np.sin(rad)]
 
 
@@ -45,24 +45,20 @@ def main():
     init_v = {"speed": np.sqrt(2) * 9.80665, "rad": np.pi / 4}
 
     n_step = 20
-    n_part = 10
+    n_part = 4
 
-    xys = np.array([[0.0, 0.0]])
-    v_xys = np.array([[0.0, 0.0]])
-
-    # xy_offest = np.array([[0, 0]])
-    print(xys)
-
-    v_xys[0] = parab.decomposition_vector(init_v['speed'], init_v['rad'])
+    xys = np.zeros((1,2))
+    v_xys = np.array([parab.polar2Cartesian(init_v['speed'], init_v['rad'])])
 
     print("Initial:")
-    print("  Position(x,y):",xys[0, 0], xys[0, 1])
-    print("  Velocity(x,y):",v_xys[0, 0],v_xys[0, 1])
+    print("  Position(x,y): (",xys[0, 0], xys[0, 1], ")")
+    print("  Velocity(x,y): (",np.round(v_xys[0, 0],6),
+          np.round(v_xys[0, 1], 6), ")")
 
     # xys = np.array([parab.pos(i, v_xys[0]) for i in range(n_step)])
     # print(np.round(xys, 6)) 
 
-    print("\n[time, x, y]")
+    print("\ntime, x, y")
     for i in range(n_step-1):
         temp = np.array([parab.velocity(parab.delta_t, v_xys[i])])
         v_xys = np.append(v_xys, temp,axis=0)
@@ -72,14 +68,14 @@ def main():
     times = np.array([[parab.delta_t * i] for i in range(n_step)])
     print(np.round(np.append(times, xys,axis=1), 6))
 
-    print("\nShow trajectory\n")
+    print("\nShow trajectory")
 
     _maxi = np.array([np.floor(np.max(xys[:,0]) + 0.5),
                       np.floor(np.max(xys[:,1]) + 0.5)])
     _mini = np.array([np.floor(np.min(xys[:,0]) + 0.5),
                       np.floor(np.min(xys[:,1]) + 0.5)])
 
-    print("max[x,y], min[x,y]: ", _maxi, _mini)
+    # print("max[x,y], min[x,y]: ", _maxi, _mini)
 
     xy_offest = np.array([xy - _mini for xy in xys])
     # print(np.round(xy_offest, 6))
