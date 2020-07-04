@@ -2,3 +2,4 @@
 *.out
 *.class
 .vscode/tasks.json
+*.gif
