@@ -12,12 +12,12 @@ class Parabolic:
                 0.5 * self.g * t * t + velocity[1] * t]
 
 
-    def velocity(self, dt, v_xy):
+    def velocity(self, v_xy):
         # print(v_xy[0], v_xy[1])
         return [v_xy[0], v_xy[1] + self.g * self.delta_t]
 
 
-    def pos_delta(self, dt, v_xy, xy):
+    def pos_delta(self, v_xy, xy):
         return [ xy[0] + v_xy[0] * self.delta_t, xy[1] + v_xy[1] * self.delta_t]
 
 
@@ -60,9 +60,9 @@ def main():
 
     print("\ntime, x, y")
     for i in range(n_step-1):
-        temp = np.array([parab.velocity(parab.delta_t, v_xys[i])])
+        temp = np.array([parab.velocity(v_xys[i])])
         v_xys = np.append(v_xys, temp,axis=0)
-        temp = np.array([parab.pos_delta(parab.delta_t, v_xys[-1], xys[-1])])
+        temp = np.array([parab.pos_delta(v_xys[-1], xys[-1])])
         xys = np.append(xys, temp,axis=0)
     
     times = np.array([[parab.delta_t * i] for i in range(n_step)])
