@@ -24,7 +24,7 @@ float init_v = sqrtf(2) * 9.80665;
 float rad = M_PI / 4;
 
 int n_step = 20;
-int n_part = 10;
+int n_part = 4;
 
 
 void pos(float t, struct vectorf v_xy, struct vectorf* pp_xy){
@@ -43,7 +43,7 @@ void pos_delta(float dt, struct vectorf v_xy,struct vectorf xy, struct vectorf* 
 }
 
 
-struct vectorf decomposition(float v, float r){
+struct vectorf Polar2Cartesian(float v, float r){
     struct vectorf t;
 
     t.x = v * cosf(r);
@@ -126,7 +126,7 @@ int main(int argc, char *argv[]) {
 
     xy[0].x = xy[0].y = 0.0;
 
-    v_xy[0] = decomposition(init_v, rad);
+    v_xy[0] = Polar2Cartesian(init_v, rad);
 
     printf("Initial:\n");
     printf("  Position(x,y): (%f, %f) \n",xy[0].x,xy[0].y);
