@@ -1,3 +1,4 @@
 *.csv
 *.out
 *.class
+.vscode/tasks.json
