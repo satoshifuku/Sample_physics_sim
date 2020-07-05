@@ -51,9 +51,9 @@ def main():
     v_xys = np.array([parab.polar2Cartesian(init_v['speed'], init_v['rad'])])
 
     print("Initial:")
-    print("  Position(x,y): (",xys[0, 0], xys[0, 1], ")")
-    print("  Velocity(x,y): (",np.round(v_xys[0, 0],6),
-          np.round(v_xys[0, 1], 6), ")")
+    print("  Position(x,y): (",'\b{:.6f}'.format(xys[0, 0]), '{:.6f}'.format(xys[0, 1]), "\b)")
+    print("  Velocity(x,y): (",'\b{:.6f}'.format(v_xys[0, 0]),
+          '{:.6f}'.format(v_xys[0, 1]), "\b)")
 
     # xys = np.array([parab.pos(i, v_xys[0]) for i in range(n_step)])
     # print(np.round(xys, 6)) 
