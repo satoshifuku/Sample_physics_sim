@@ -50,7 +50,7 @@ def main():
     xys = np.zeros((1,2))
     v_xys = np.array([parab.polar2Cartesian(init_v['speed'], init_v['rad'])])
 
-    print("Initial:")
+    print("\nInitial:")
     print("  Position(x,y): (",'\b{:.6f}'.format(xys[0, 0]), '{:.6f}'.format(xys[0, 1]), "\b)")
     print("  Velocity(x,y): (",'\b{:.6f}'.format(v_xys[0, 0]),
           '{:.6f}'.format(v_xys[0, 1]), "\b)")
