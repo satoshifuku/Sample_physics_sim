@@ -18,3 +18,8 @@ In the code:
 - `n_part`: The large number means to show more smooth trajectory(Defauld:4).
 
 
+## Extra codes
+
+- `./pythics_img.py`: Showing a figure of a trajectory with matplotlib.
+- `./pythics_anim.py`: Showing an animation of a trajectory with matplotlib.
+- `.physics/physics.of`: Showing an animation of a trajectory in real-time with Processing.
