@@ -20,7 +20,7 @@ float g = -9.80665;
 float delta_t = 0.1;
 
 // Initial speed and direction(radian)
-float init_v = sqrtf(2) * 9.80665;
+float speed = sqrtf(2) * 9.80665;
 float rad = M_PI / 4;
 
 int n_step = 20;
@@ -126,7 +126,7 @@ int main(int argc, char *argv[]) {
 
     xy[0].x = xy[0].y = 0.0;
 
-    v_xy[0] = Polar2Cartesian(init_v, rad);
+    v_xy[0] = Polar2Cartesian(speed, rad);
 
     printf("Initial:\n");
     printf("  Position(x,y): (%f, %f) \n",xy[0].x,xy[0].y);
